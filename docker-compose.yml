@@ -1,0 +1,15 @@
+version: '4.20'
+services:
+  vechiletracking:
+    container_name: vechileTracking-container
+    image: mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=ygz123
+      - MYSQL_TCP_PORT=3306
+      - VIRTUAL_PORT=3306
+    volumes:
+      - vechiletracking:data/db
+volumes:
+  vechiletracking:

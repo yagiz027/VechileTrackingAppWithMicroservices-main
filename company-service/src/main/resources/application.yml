@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: COMPANY-SERVICE
+  datasource:
+    username: root
+    password: 'ygz123'
+    url: jdbc:mysql://localhost:3306/vechiletracking?createDatabaseIfNotExist=true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
