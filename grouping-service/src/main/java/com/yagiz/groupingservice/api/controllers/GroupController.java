@@ -1,7 +1,6 @@
 package com.yagiz.groupingservice.api.controllers;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +28,7 @@ public class GroupController {
     private GroupService service;
 
     @GetMapping("/{id}")
-    public GetGroupById getById(@PathVariable UUID id){
+    public GetGroupById getById(@PathVariable int id){
         return service.getById(id);
     }
 
@@ -44,12 +43,12 @@ public class GroupController {
     }
 
     @PutMapping("/{id}")
-    public UpdateGroupResponse updateGroup(@PathVariable UUID id, @RequestBody UpdateGroupRequest request){
+    public UpdateGroupResponse updateGroup(@PathVariable int id, @RequestBody UpdateGroupRequest request){
         return service.updateGroup(id, request);
     }
 
     @DeleteMapping 
-    public void deleteById(@PathVariable UUID id){
+    public void deleteById(@PathVariable int id){
         service.deleteById(id);
     }
 }

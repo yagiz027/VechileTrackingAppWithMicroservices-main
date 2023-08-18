@@ -11,7 +11,8 @@ import lombok.Setter;
 @Setter
 public class CreateUserResponse {
     private int id;
-    private String username;
+    private String name;
+    private String surname;
     private String email;
     private String password;
     private String role;

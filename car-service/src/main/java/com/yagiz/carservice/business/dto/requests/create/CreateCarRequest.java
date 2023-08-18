@@ -1,7 +1,5 @@
 package com.yagiz.carservice.business.dto.requests.create;
 
-import java.util.UUID;
-
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,11 +12,9 @@ import lombok.Setter;
 @Setter
 public class CreateCarRequest {
     @NotNull
-    private UUID modelId;
+    private int modelId;
     @NotNull
-    private UUID companyId;
-    @NotNull
-    private UUID groupId;
+    private int companyId;
     private String plate;
     private String ChassisNumber;
     private String tag;

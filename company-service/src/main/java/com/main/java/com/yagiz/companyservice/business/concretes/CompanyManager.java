@@ -1,7 +1,6 @@
 package com.main.java.com.yagiz.companyservice.business.concretes;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class CompanyManager implements CompanyService {
     private CompanyBusinessRules rules;
     
     @Override
-    public GetCompanyResponse getCompanyById(UUID id) {
+    public GetCompanyResponse getCompanyById(int id) {
         rules.checkIfCompanyNotExists(id);
         Company company=repository.findById(id).orElseThrow();
         GetCompanyResponse response=modelMapperService.forResponse().map(company, GetCompanyResponse.class);
@@ -47,7 +46,7 @@ public class CompanyManager implements CompanyService {
     public CreateCompanyResponse add(CreateCompanyRequest request) {
         rules.checkIfCompanyAlreadyExists(request.getName());
         Company company=modelMapperService.forRequest().map(request,Company.class);
-        company.setId(UUID.randomUUID());
+        company.setId(0);
         repository.save(company);
         CreateCompanyResponse response=modelMapperService.forResponse().map(company, CreateCompanyResponse.class);
 
@@ -55,7 +54,7 @@ public class CompanyManager implements CompanyService {
     }
 
     @Override
-    public UpdateCompanyResponse update(UUID id,UpdateCompanyRequest request) {
+    public UpdateCompanyResponse update(int id,UpdateCompanyRequest request) {
         rules.checkIfCompanyNotExists(id);
         Company company=modelMapperService.forRequest().map(request, Company.class);
         company.setId(id);
@@ -66,7 +65,7 @@ public class CompanyManager implements CompanyService {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         rules.checkIfCompanyNotExists(id);
         repository.findById(id);
     }

@@ -1,7 +1,5 @@
 package com.yagiz.groupingservice.business.rules;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
 import com.yagiz.exceptionservice.utils.constants.Messages;
@@ -15,7 +13,7 @@ import lombok.AllArgsConstructor;
 public class GroupBusinessRules {
     private GroupRepository repository;
 
-    public void checkIfGroupIdNotExists(UUID id){
+    public void checkIfGroupIdNotExists(int id){
         if(!repository.existsById(id)){
             throw new BusinessException(Messages.Group.NotExists);
         }

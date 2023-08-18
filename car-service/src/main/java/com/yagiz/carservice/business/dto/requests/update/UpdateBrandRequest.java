@@ -1,7 +1,5 @@
 package com.yagiz.carservice.business.dto.requests.update;
 
-import java.util.UUID;
-
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UpdateBrandRequest {
-    private UUID brandId;
+    private int brandId;
     @Size(min=3,max=20)
     private String brandName;
 }

@@ -1,7 +1,6 @@
 package com.main.java.com.yagiz.companyservice.entity;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,8 +20,8 @@ import lombok.Setter;
 @Setter
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private LocalDate foundation;
 }

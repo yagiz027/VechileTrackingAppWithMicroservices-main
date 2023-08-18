@@ -1,11 +1,9 @@
 package com.main.java.com.yagiz.companyservice.repository;
 
-import java.util.UUID;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.main.java.com.yagiz.companyservice.entity.Company;
 
-public interface CompanyRepository extends JpaRepository<Company,UUID>{
+public interface CompanyRepository extends JpaRepository<Company,Integer>{
     boolean existsByName(String name);
 }

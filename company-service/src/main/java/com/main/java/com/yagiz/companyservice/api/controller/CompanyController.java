@@ -1,7 +1,6 @@
 package com.main.java.com.yagiz.companyservice.api.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +37,7 @@ public class CompanyController {
 
     @PutMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public UpdateCompanyResponse update(@PathVariable UUID id, @RequestBody UpdateCompanyRequest request){
+    public UpdateCompanyResponse update(@PathVariable int id, @RequestBody UpdateCompanyRequest request){
         return companyService.update(id,request);
     }
 
@@ -48,12 +47,12 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}")
-    public GetCompanyResponse getCompanyById(@PathVariable UUID id){
+    public GetCompanyResponse getCompanyById(@PathVariable int id){
         return companyService.getCompanyById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable UUID id){
+    public void deleteById(@PathVariable int id){
         companyService.deleteById(id);
     }
 }

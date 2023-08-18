@@ -6,7 +6,8 @@ import lombok.*;
 @Getter
 @Setter
 public class CreateUserRequest {
-    private String username;
+    private String name;
+    private String surname;
     private String email;
     private String password;
     private String role;

@@ -1,7 +1,5 @@
 package com.yagiz.carservice.business.dto.reponses.update;
 
-import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UpdateBrandResponse {
-    private UUID brandId;
+    private int brandId;
     private String brandName;
 }

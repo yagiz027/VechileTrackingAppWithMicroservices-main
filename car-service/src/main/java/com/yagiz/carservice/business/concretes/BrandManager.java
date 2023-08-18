@@ -1,7 +1,6 @@
 package com.yagiz.carservice.business.concretes;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -30,14 +29,14 @@ public class BrandManager implements BrandService{
     @Override
     public CreateBrandResponse addBrand(CreateBrandRequest request) {
         var brand=this.modelMapperService.forRequest().map(request, Brand.class);
-        brand.setBrandId(null);
+        brand.setBrandId(0);
         repository.save(brand);
         CreateBrandResponse response=this.modelMapperService.forResponse().map(request, CreateBrandResponse.class);
         return response;
     }
 
     @Override
-    public GetBrandResponse getBrandById(UUID brandId) {
+    public GetBrandResponse getBrandById(int brandId) {
         rules.checkIfBrandNotExists(brandId);
         var brand = repository.findById(brandId).orElseThrow();
         var response =this.modelMapperService.forResponse().map(brand, GetBrandResponse.class);
@@ -52,7 +51,7 @@ public class BrandManager implements BrandService{
     }
 
     @Override
-    public UpdateBrandResponse updateBrand(UUID id, UpdateBrandRequest request) {
+    public UpdateBrandResponse updateBrand(int id, UpdateBrandRequest request) {
         rules.checkIfBrandNotExists(id);
         var brand=modelMapperService.forRequest().map(request,Brand.class);
         brand.setBrandId(id);
@@ -62,7 +61,7 @@ public class BrandManager implements BrandService{
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         rules.checkIfBrandNotExists(id);
         repository.deleteById(id);
     }

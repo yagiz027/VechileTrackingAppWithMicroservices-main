@@ -1,7 +1,6 @@
 package com.yagiz.groupingservice.entity;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.yagiz.carservice.entities.Car;
 
@@ -26,8 +25,8 @@ import lombok.Setter;
 @Table(name = "groups_table")
 public class Group {
     @Id
-    @GeneratedValue(strategy=GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
     private String name;
     

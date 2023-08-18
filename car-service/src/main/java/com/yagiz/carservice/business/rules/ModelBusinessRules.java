@@ -1,7 +1,5 @@
 package com.yagiz.carservice.business.rules;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
 import com.yagiz.carservice.repository.ModelRepository;
@@ -15,13 +13,13 @@ import lombok.AllArgsConstructor;
 public class ModelBusinessRules {
     private ModelRepository repository;
 
-    public void checkIfModelAlreadyExists(UUID modelId){
+    public void checkIfModelAlreadyExists(int modelId){
         if(repository.existsById(modelId)){
             throw new BusinessException(Messages.Model.AlreadyExists);
         }
     }
 
-    public void checkIfModelNotExsist(UUID modelId){
+    public void checkIfModelNotExsist(int modelId){
         if(!repository.existsById(modelId)){
             throw new BusinessException(Messages.Model.NotExists);
         }

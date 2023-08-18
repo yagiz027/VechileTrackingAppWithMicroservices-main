@@ -1,7 +1,6 @@
 package com.yagiz.carservice.business.concretes;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -29,24 +28,24 @@ public class CarManager implements CarService{
     @Override
     public CreateCarResponse add(CreateCarRequest request) {
         var car=mapperService.forRequest().map(request, Car.class);
-        car.setCarId(UUID.randomUUID());
+        car.setId(0);
         repository.save(car);
         var response=mapperService.forResponse().map(car, CreateCarResponse.class);
         return response;
     }
 
     @Override
-    public UpdateCarResponse update(UUID carId ,UpdateCarRequest request) {
+    public UpdateCarResponse update(int carId ,UpdateCarRequest request) {
         rules.checkIfCarNotFound(carId);
         var car=mapperService.forRequest().map(request, Car.class);
-        car.setCarId(carId);
+        car.setId(carId);
         repository.save(car);
         var response=mapperService.forRequest().map(car,UpdateCarResponse.class);
         return response;
     }
 
     @Override
-    public GetCarResponse getCarById(UUID id) {
+    public GetCarResponse getCarById(int id) {
         rules.checkIfCarNotFound(id);
         var car=repository.findById(id).orElseThrow();
         var response=mapperService.forResponse().map(car,GetCarResponse.class);
@@ -61,7 +60,7 @@ public class CarManager implements CarService{
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         rules.checkIfCarNotFound(id);
         repository.deleteById(id);
     }

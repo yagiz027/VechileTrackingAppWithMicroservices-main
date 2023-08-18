@@ -1,7 +1,6 @@
 package com.yagiz.groupingservice.entity;
 
 import java.util.List;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,8 +23,8 @@ import lombok.Setter;
 @Setter
 public class Area {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
 
     @OneToMany(mappedBy="area")

@@ -1,7 +1,5 @@
 package com.yagiz.carservice.business.dto.reponses.create;
 
-import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateCarResponse {
-    private UUID carId;
+    private int carId;
     private String modelName;
     private String companyName;
     private String groupName;

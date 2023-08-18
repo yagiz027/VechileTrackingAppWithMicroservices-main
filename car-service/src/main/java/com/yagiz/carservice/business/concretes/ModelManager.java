@@ -1,7 +1,6 @@
 package com.yagiz.carservice.business.concretes;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -29,24 +28,24 @@ public class ModelManager implements ModelService {
     @Override
     public CreateModelResponse add(CreateModelRequest request) {
         var model=this.modelMapperService.forRequest().map(request, Model.class);
-        model.setModelId(null);
+        model.setId(0);
         repository.save(model);
         var response=this.modelMapperService.forResponse().map(model, CreateModelResponse.class);
         return response;
     }
 
     @Override
-    public UpdateModelResponse update(UUID modelId, UpdateModelRequest request) {
+    public UpdateModelResponse update(int modelId, UpdateModelRequest request) {
         rules.checkIfModelNotExsist(modelId);
         var model=modelMapperService.forRequest().map(request, Model.class);
-        model.setModelId(modelId);
+        model.setId(modelId);
         repository.save(model);
         var response=modelMapperService.forResponse().map(model, UpdateModelResponse.class);
         return response;
     }
 
     @Override
-    public GetModelResponse getModelById(UUID id) {
+    public GetModelResponse getModelById(int id) {
         rules.checkIfModelNotExsist(id);
         var model=repository.findById(id).orElseThrow();
         var response=this.modelMapperService.forResponse().map(model, GetModelResponse.class);
@@ -61,7 +60,7 @@ public class ModelManager implements ModelService {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         rules.checkIfModelNotExsist(id);
         repository.deleteById(id);
     }

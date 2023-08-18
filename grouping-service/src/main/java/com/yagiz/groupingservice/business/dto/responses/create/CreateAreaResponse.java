@@ -1,7 +1,5 @@
 package com.yagiz.groupingservice.business.dto.responses.create;
 
-import java.util.UUID;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateAreaResponse {
-    private UUID id;
+    private int id;
     private String name;
 }

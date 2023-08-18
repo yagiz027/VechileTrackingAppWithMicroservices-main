@@ -25,4 +25,7 @@ public class CreateGroupRequest {
     @NotBlank
     @NotNull
     private UUID groupId;
+    @NotNull
+    @NotBlank
+    private UUID carID;
 }

@@ -1,7 +1,5 @@
 package com.main.java.com.yagiz.companyservice.business.rules;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
 import com.main.java.com.yagiz.companyservice.repository.CompanyRepository;
@@ -15,7 +13,7 @@ import lombok.AllArgsConstructor;
 public class CompanyBusinessRules {
     private CompanyRepository repository;
 
-    public void checkIfCompanyNotExists(UUID id){
+    public void checkIfCompanyNotExists(int id){
         if(!repository.existsById(id)){
             throw new BusinessException(Messages.Company.NotExists);
         }

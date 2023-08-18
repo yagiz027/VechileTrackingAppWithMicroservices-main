@@ -1,7 +1,6 @@
 package com.yagiz.carservice.entities;
 
 import java.util.List;
-import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -25,11 +24,11 @@ import lombok.Setter;
 @Setter
 public class Model {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID modelId;
-    private String modelName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
     //@NotFutureYear
-    private int modelYear;
+    private int year;
     @ManyToOne
     @JoinColumn(name = "brandId")
     private Brand brand;

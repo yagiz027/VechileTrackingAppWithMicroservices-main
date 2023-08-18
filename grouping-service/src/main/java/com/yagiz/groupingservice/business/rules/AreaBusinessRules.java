@@ -1,7 +1,5 @@
 package com.yagiz.groupingservice.business.rules;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
 import com.yagiz.exceptionservice.utils.constants.Messages;
@@ -15,7 +13,7 @@ import lombok.AllArgsConstructor;
 public class AreaBusinessRules {
     private AreaRepository repository;
     
-    public void checkIfAreaNotExists(UUID id){
+    public void checkIfAreaNotExists(int id){
         if(!repository.existsById(id)){
             throw new BusinessException(Messages.Area.NotExists);
         }

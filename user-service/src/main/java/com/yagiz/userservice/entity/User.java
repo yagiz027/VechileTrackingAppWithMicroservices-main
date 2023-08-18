@@ -28,8 +28,8 @@ import lombok.Setter;
 @Setter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String surname;
     private UUID companyId;

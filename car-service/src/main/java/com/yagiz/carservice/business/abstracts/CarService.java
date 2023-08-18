@@ -1,7 +1,6 @@
 package com.yagiz.carservice.business.abstracts;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.yagiz.carservice.business.dto.reponses.create.CreateCarResponse;
 import com.yagiz.carservice.business.dto.reponses.get.GetCarListResponse;
@@ -13,8 +12,8 @@ import com.yagiz.carservice.business.dto.requests.update.UpdateCarRequest;
 
 public interface CarService {
     CreateCarResponse add(CreateCarRequest request);
-    UpdateCarResponse update(UUID carId,UpdateCarRequest request);
-    GetCarResponse getCarById(UUID id);
+    UpdateCarResponse update(int carId,UpdateCarRequest request);
+    GetCarResponse getCarById(int id);
     List<GetCarListResponse> getCarList();
-    void deleteById(UUID id);
+    void deleteById(int id);
 }

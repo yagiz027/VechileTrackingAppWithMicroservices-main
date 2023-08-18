@@ -1,10 +1,15 @@
 package com.yagiz.userservice.api.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.yagiz.userservice.business.abstracts.UserService;
 import com.yagiz.userservice.business.dtos.reponses.create.CreateUserResponse;
@@ -30,7 +35,7 @@ public class UserController {
 
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public UpdateUserResponse update(UUID userId,UpdateUserRequest request){
+    public UpdateUserResponse update(int userId,UpdateUserRequest request){
         return service.update(userId,request);
     }
 
@@ -40,13 +45,13 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public GetUserResponse getById(UUID userId){
+    public GetUserResponse getById(int userId){
         return service.getById(userId);
     }
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(UUID userId){
+    public void deleteById(int userId){
         service.deleteById(userId);
     }
 }

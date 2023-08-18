@@ -1,7 +1,6 @@
 package com.yagiz.groupingservice.business.dto.responses.get;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.yagiz.carservice.entities.Car;
 import com.yagiz.groupingservice.entity.Group;
@@ -16,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class GetGroupById {
-    private UUID groupId;
+    private int groupId;
     private String groupName;
     private String provinceName;
     private String areaName;

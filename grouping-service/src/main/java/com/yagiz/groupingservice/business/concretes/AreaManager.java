@@ -1,7 +1,6 @@
 package com.yagiz.groupingservice.business.concretes;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class AreaManager implements AreaService {
     private AreaBusinessRules rules;
 
     @Override
-    public GetAreaById getById(UUID id) {
+    public GetAreaById getById(int id) {
         rules.checkIfAreaNotExists(id);
         Area area=repository.findById(id).orElseThrow();
         GetAreaById response=modelMapperService.forResponse().map(area, GetAreaById.class);
@@ -45,14 +44,14 @@ public class AreaManager implements AreaService {
     public CreateAreaResponse addArea(CreateAreaRequest request) {
         rules.checkIfAreaAlreadyExists(request.getName());
         Area area=modelMapperService.forRequest().map(request, Area.class);
-        area.setId(UUID.randomUUID());
+        area.setId(0);
         repository.save(area);
         CreateAreaResponse response=modelMapperService.forResponse().map(area, CreateAreaResponse.class);
         return response;
     }
 
     @Override
-    public UpdateAreaResponse updateArea(UUID id,UpdateAreaRequest request) {
+    public UpdateAreaResponse updateArea(int id,UpdateAreaRequest request) {
         rules.checkIfAreaNotExists(id);
         Area area=modelMapperService.forRequest().map(request, Area.class);
         area.setId(id);
@@ -62,7 +61,7 @@ public class AreaManager implements AreaService {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         rules.checkIfAreaNotExists(id);
         repository.deleteById(id);
     }

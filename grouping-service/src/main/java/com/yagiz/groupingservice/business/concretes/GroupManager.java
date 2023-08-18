@@ -1,7 +1,6 @@
 package com.yagiz.groupingservice.business.concretes;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -10,11 +9,11 @@ import com.yagiz.groupingservice.business.dto.requests.create.CreateGroupRequest
 import com.yagiz.groupingservice.business.dto.requests.update.UpdateGroupRequest;
 import com.yagiz.groupingservice.business.dto.responses.create.CreateGroupResponse;
 import com.yagiz.groupingservice.business.dto.responses.get.GetGroupById;
+import com.yagiz.groupingservice.business.dto.responses.get.GetGroupList;
 import com.yagiz.groupingservice.business.dto.responses.update.UpdateGroupResponse;
 import com.yagiz.groupingservice.business.rules.GroupBusinessRules;
 import com.yagiz.groupingservice.entity.Group;
 import com.yagiz.groupingservice.repository.GroupRepository;
-import com.yagiz.groupingservice.business.dto.responses.get.GetGroupList;
 
 import lombok.AllArgsConstructor;
 import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
@@ -27,7 +26,7 @@ public class GroupManager implements GroupService{
     private GroupBusinessRules rules;
 
     @Override
-    public GetGroupById getById(UUID id) {
+    public GetGroupById getById(int id) {
         rules.checkIfGroupIdNotExists(id);
         Group group= repository.findById(id).orElseThrow();
         GetGroupById response=modelMapperService.forResponse().map(group, GetGroupById.class);
@@ -43,7 +42,7 @@ public class GroupManager implements GroupService{
     public CreateGroupResponse addGroup(CreateGroupRequest request) {
         rules.checkIfGroupAlreadyExsists(request.getName());
         Group group = modelMapperService.forRequest().map(request, Group.class);
-        group.setId(UUID.randomUUID());
+        group.setId(0);
 
         repository.save(group);
         CreateGroupResponse response = modelMapperService.forResponse().map(group, CreateGroupResponse.class);
@@ -51,7 +50,7 @@ public class GroupManager implements GroupService{
         return response;
     }
     @Override
-    public UpdateGroupResponse updateGroup(UUID id, UpdateGroupRequest request) {
+    public UpdateGroupResponse updateGroup(int id, UpdateGroupRequest request) {
         rules.checkIfGroupIdNotExists(id);
         Group group=modelMapperService.forRequest().map(request, Group.class);
         group.setId(id);
@@ -61,7 +60,7 @@ public class GroupManager implements GroupService{
         return response;
     }
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(int id) {
         rules.checkIfGroupIdNotExists(id);
         repository.deleteById(id);
     }

@@ -1,7 +1,6 @@
 package com.yagiz.carservice.entities;
 
 import java.util.List;
-import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,8 +22,8 @@ import lombok.Setter;
 @Setter
 public class Brand {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID brandId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int brandId;
     private String brandName;
 
     @OneToMany(mappedBy = "brand",cascade = CascadeType.ALL)
