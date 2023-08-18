@@ -1,5 +1,7 @@
 package com.yagiz.userservice.business.rules;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import com.yagiz.exceptionservice.utils.constants.Messages;
@@ -13,7 +15,7 @@ import lombok.AllArgsConstructor;
 public class UserBusinessRules {
     private UserRepository repository;
 
-    public void checkIfUserNotExists(int id){
+    public void checkIfUserNotExists(UUID id){
         if(!repository.existsById(id)){
             throw new BusinessException(Messages.User.NotExists);
         }

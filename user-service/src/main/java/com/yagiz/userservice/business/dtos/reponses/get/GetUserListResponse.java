@@ -1,5 +1,7 @@
 package com.yagiz.userservice.business.dtos.reponses.get;
 
+import java.util.UUID;
+
 import lombok.*;
 
 @AllArgsConstructor
@@ -7,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 public class GetUserListResponse {
-    private int id;
+    private UUID id;
     private String username;
     private String email;
     private String password;

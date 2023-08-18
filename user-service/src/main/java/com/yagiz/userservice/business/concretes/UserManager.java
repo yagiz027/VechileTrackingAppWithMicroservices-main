@@ -1,6 +1,7 @@
 package com.yagiz.userservice.business.concretes;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -29,24 +30,24 @@ public class UserManager implements UserService{
     public CreateUserResponse add(CreateUserRequest request) {
         rules.checkIfUserAlreadyExists(request.getUsername());
         User user=mapperService.forRequest().map(request, User.class);
-        user.setId(0);
+        user.setId(UUID.randomUUID());
         repository.save(user);
         CreateUserResponse response=mapperService.forResponse().map(user, CreateUserResponse.class);
         return response;
     }
 
     @Override
-    public UpdateUserResponse update(int userId,UpdateUserRequest request) {
-        rules.checkIfUserNotExists(userId);
+    public UpdateUserResponse update(UUID id,UpdateUserRequest request) {
+        rules.checkIfUserNotExists(id);
         User user=mapperService.forRequest().map(request, User.class);
-        user.setId(userId);
+        user.setId(id);
         repository.save(user);
         UpdateUserResponse response=mapperService.forResponse().map(user, UpdateUserResponse.class);
         return response;
     }
 
     @Override
-    public GetUserResponse getById(int id) {
+    public GetUserResponse getById(UUID id) {
         rules.checkIfUserNotExists(id);
         User user=repository.findById(id).orElseThrow();
         GetUserResponse response=mapperService.forResponse().map(user, GetUserResponse.class);
@@ -64,7 +65,7 @@ public class UserManager implements UserService{
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(UUID id) {
         rules.checkIfUserNotExists(id);
         repository.deleteById(id);
     }

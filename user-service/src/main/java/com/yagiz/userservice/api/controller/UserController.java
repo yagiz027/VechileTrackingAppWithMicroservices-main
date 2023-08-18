@@ -1,6 +1,7 @@
 package com.yagiz.userservice.api.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class UserController {
 
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public UpdateUserResponse update(int userId,UpdateUserRequest request){
+    public UpdateUserResponse update(UUID userId,UpdateUserRequest request){
         return service.update(userId,request);
     }
 
@@ -39,13 +40,13 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public GetUserResponse getById(int userId){
+    public GetUserResponse getById(UUID userId){
         return service.getById(userId);
     }
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(int userId){
+    public void deleteById(UUID userId){
         service.deleteById(userId);
     }
 }

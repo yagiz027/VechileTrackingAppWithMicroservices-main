@@ -12,9 +12,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UpdateCarResponse {
-    private UUID id;
-    private String plate;   
+    private UUID carId;
+    private String modelName;
+    private String companyName;
+    private String groupName;
+    private String carPlate;   
     private String ChassisNumber;
     private String tag;
-    private String modelName;
 }
+

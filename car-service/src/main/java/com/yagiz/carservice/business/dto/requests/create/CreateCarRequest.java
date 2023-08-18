@@ -13,9 +13,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateCarRequest {
+    @NotNull
+    private UUID modelId;
+    @NotNull
+    private UUID companyId;
+    @NotNull
+    private UUID groupId;
     private String plate;
     private String ChassisNumber;
     private String tag;
-    @NotNull
-    private UUID modelId;
 }

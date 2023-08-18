@@ -13,7 +13,9 @@ import lombok.Setter;
 @Setter
 public class CreateCarResponse {
     private UUID carId;
-    private UUID modelId;
+    private String modelName;
+    private String companyName;
+    private String groupName;
     private String carPlate;   
     private String ChassisNumber;
     private String tag;
