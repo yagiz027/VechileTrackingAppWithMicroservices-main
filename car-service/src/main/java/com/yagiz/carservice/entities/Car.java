@@ -4,8 +4,6 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.main.java.com.yagiz.companyservice.entity.Company;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,8 +35,4 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "modelId")
     private Model model;
-
-    @ManyToOne
-    @JoinColumn(name="companyId")
-    private Company company;
 }

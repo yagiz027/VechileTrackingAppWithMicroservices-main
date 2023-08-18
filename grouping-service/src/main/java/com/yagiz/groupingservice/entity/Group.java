@@ -23,30 +23,30 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "groups")
+@Table(name = "groups_table")
 public class Group {
     @Id
     @GeneratedValue(strategy=GenerationType.UUID)
     private UUID id;
 
     private String name;
-
+    
     @ManyToOne
     @JoinColumn(name = "provinceId")
     private Province province;
-
+    
     @ManyToOne
-    @JoinColumn(name = "areaId")
+    @JoinColumn(name="areaId")
     private Area area;
-
+    
     @ManyToOne
     @JoinColumn(name="groupId")
     private Group group;
+
+    @ManyToOne
+    @JoinColumn(name="carId")
+    private Car car;
     
-    @OneToMany(mappedBy = "groups")
+    @OneToMany(mappedBy = "group")
     private List<Group> childGroups;
-
-    @OneToMany(mappedBy = "cars")
-    private List<Car> cars;
-
 }

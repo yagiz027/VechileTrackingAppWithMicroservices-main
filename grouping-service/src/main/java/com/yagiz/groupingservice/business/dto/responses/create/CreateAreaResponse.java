@@ -1,4 +1,4 @@
-package com.yagiz.groupingservice.business.dto.responses.update;
+package com.yagiz.groupingservice.business.dto.responses.create;
 
 import java.util.UUID;
 
@@ -11,11 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UpdateGroupResponse {
+public class CreateAreaResponse {
     private UUID id;
     private String name;
-    private String userName;
-    private String userSurname;
-    private String groupName;
-    private String carPlate;  
 }

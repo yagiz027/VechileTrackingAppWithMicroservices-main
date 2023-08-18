@@ -11,11 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UpdateGroupResponse {
+public class UpdateAreaResponse {
     private UUID id;
     private String name;
-    private String userName;
-    private String userSurname;
-    private String groupName;
-    private String carPlate;  
 }

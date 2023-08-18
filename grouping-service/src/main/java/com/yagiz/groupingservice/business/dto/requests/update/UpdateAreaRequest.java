@@ -1,4 +1,4 @@
-package com.yagiz.groupingservice.business.dto.requests.create;
+package com.yagiz.groupingservice.business.dto.requests.update;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CreateAreaRequest {
+public class UpdateAreaRequest {
     private String name;
 }

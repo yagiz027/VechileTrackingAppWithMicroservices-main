@@ -28,7 +28,7 @@ public class Area {
     private UUID id;
     private String name;
 
-    @OneToMany(mappedBy="groups")
+    @OneToMany(mappedBy="area")
     private List<Group> groups;
 
     @ManyToOne

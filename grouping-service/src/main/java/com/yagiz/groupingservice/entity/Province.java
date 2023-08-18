@@ -28,9 +28,9 @@ public class Province {
     private String name;
     private int postalCode;
 
-    @OneToMany(mappedBy = "groups")
+    @OneToMany(mappedBy = "province")
     private List<Group> groups;
 
-    @OneToMany(mappedBy = "areas")
+    @OneToMany(mappedBy = "province")
     private List<Area> areas;
 }

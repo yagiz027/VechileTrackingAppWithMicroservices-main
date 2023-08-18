@@ -91,12 +91,6 @@
 
 		<dependency>
 			<groupId>com.yagiz</groupId>
-			<artifactId>company-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.yagiz</groupId>
 			<artifactId>car-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
