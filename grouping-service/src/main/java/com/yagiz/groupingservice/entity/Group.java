@@ -2,8 +2,6 @@ package com.yagiz.groupingservice.entity;
 
 import java.util.List;
 
-import com.yagiz.carservice.entities.Car;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +25,7 @@ public class Group {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    private int carId;
 
     private String name;
     
@@ -42,10 +41,6 @@ public class Group {
     @JoinColumn(name="groupId")
     private Group group;
 
-    @ManyToOne
-    @JoinColumn(name="carId")
-    private Car car;
-    
     @OneToMany(mappedBy = "group")
     private List<Group> childGroups;
 }

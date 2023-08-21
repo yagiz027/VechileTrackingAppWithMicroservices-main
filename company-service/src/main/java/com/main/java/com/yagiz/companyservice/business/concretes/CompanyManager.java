@@ -14,9 +14,9 @@ import com.main.java.com.yagiz.companyservice.business.dtos.requests.UpdateCompa
 import com.main.java.com.yagiz.companyservice.business.rules.CompanyBusinessRules;
 import com.main.java.com.yagiz.companyservice.entity.Company;
 import com.main.java.com.yagiz.companyservice.repository.CompanyRepository;
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @AllArgsConstructor
 @Service
@@ -68,6 +68,13 @@ public class CompanyManager implements CompanyService {
     public void deleteById(int id) {
         rules.checkIfCompanyNotExists(id);
         repository.findById(id);
+    }
+
+    @Override
+    public Company getCompanyByRequestId(int id) {
+        rules.checkIfCompanyNotExists(id);        
+        Company company = repository.findById(id).orElseThrow();
+        return company;
     }
     
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 import com.yagiz.groupingservice.business.abstracts.ProvinceService;
 import com.yagiz.groupingservice.business.dto.responses.get.GetProvinceById;
 import com.yagiz.groupingservice.business.dto.responses.get.GetProvinceList;
@@ -12,14 +13,13 @@ import com.yagiz.groupingservice.entity.Province;
 import com.yagiz.groupingservice.repository.ProvinceRepository;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @AllArgsConstructor
 @Service
 public class ProvinceManager implements ProvinceService {
-    private ProvinceRepository repository;
-    private ModelMapperService modelMapperService;
-    private ProvinceBusinessRules rules;
+    private final ProvinceRepository repository;
+    private final ModelMapperService modelMapperService;
+    private final ProvinceBusinessRules rules;
 
     @Override
     public GetProvinceById getById(int id) {

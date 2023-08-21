@@ -2,7 +2,6 @@ package com.yagiz.groupingservice.business.dto.responses.get;
 
 import java.util.List;
 
-import com.yagiz.carservice.entities.Car;
 import com.yagiz.groupingservice.entity.Group;
 
 import lombok.AllArgsConstructor;
@@ -20,5 +19,4 @@ public class GetGroupById {
     private String provinceName;
     private String areaName;
     private List<Group> groups;
-    private List<Car> cars;
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 import com.yagiz.userservice.business.abstracts.UserService;
 import com.yagiz.userservice.business.dtos.reponses.create.CreateUserResponse;
 import com.yagiz.userservice.business.dtos.reponses.get.GetUserListResponse;
@@ -16,7 +17,6 @@ import com.yagiz.userservice.entity.User;
 import com.yagiz.userservice.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @Service
 @AllArgsConstructor

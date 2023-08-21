@@ -1,6 +1,7 @@
-package com.yagiz.carservice.business.dto.requests.create;
+package com.yagiz.commonservice.Events.Car;
 
-import jakarta.validation.constraints.NotNull;
+import com.yagiz.commonservice.Events.Event;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,13 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CreateCarRequest {
-    @NotNull
+public class CarCreatedEvent implements Event{
+    private int carId;
     private int modelId;
-    @NotNull
+    private int brandID;
     private int companyId;
-    @NotNull
     private int groupId;
+    private int modelYear;
     private String plate;
     private String ChassisNumber;
     private String tag;

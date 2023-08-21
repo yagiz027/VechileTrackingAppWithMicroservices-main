@@ -10,10 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class GetCarListResponse {
-    private int id;
+    private int carId;
+    private int companyId;
+    private int groupId;
     private String modelName;
-    private String companyName;
-    private String groupName;
     private String carPlate;   
     private String ChassisNumber;
     private String tag;

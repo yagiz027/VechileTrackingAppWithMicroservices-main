@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 import com.yagiz.groupingservice.business.abstracts.AreaService;
 import com.yagiz.groupingservice.business.dto.requests.create.CreateAreaRequest;
 import com.yagiz.groupingservice.business.dto.requests.update.UpdateAreaRequest;
@@ -16,14 +17,13 @@ import com.yagiz.groupingservice.entity.Area;
 import com.yagiz.groupingservice.repository.AreaRepository;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @AllArgsConstructor
 @Service
 public class AreaManager implements AreaService {
-    private AreaRepository repository;
-    private ModelMapperService modelMapperService;
-    private AreaBusinessRules rules;
+    private final AreaRepository repository;
+    private final ModelMapperService modelMapperService;
+    private final AreaBusinessRules rules;
 
     @Override
     public GetAreaById getById(int id) {

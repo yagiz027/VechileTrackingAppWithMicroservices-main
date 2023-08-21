@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 import com.yagiz.groupingservice.business.abstracts.GroupService;
 import com.yagiz.groupingservice.business.dto.requests.create.CreateGroupRequest;
 import com.yagiz.groupingservice.business.dto.requests.update.UpdateGroupRequest;
@@ -16,14 +17,13 @@ import com.yagiz.groupingservice.entity.Group;
 import com.yagiz.groupingservice.repository.GroupRepository;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @AllArgsConstructor
 @Service
 public class GroupManager implements GroupService{
-    private ModelMapperService modelMapperService;
-    private GroupRepository repository;
-    private GroupBusinessRules rules;
+    private final ModelMapperService modelMapperService;
+    private final GroupRepository repository;
+    private final GroupBusinessRules rules;
 
     @Override
     public GetGroupById getById(int id) {
@@ -63,5 +63,11 @@ public class GroupManager implements GroupService{
     public void deleteById(int id) {
         rules.checkIfGroupIdNotExists(id);
         repository.deleteById(id);
+    }
+    @Override
+    public Group getGroupByRequestId(int id) {
+        rules.checkIfGroupIdNotExists(id);
+        Group group=repository.findById(id).orElseThrow();
+        return group;
     }
 }

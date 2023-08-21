@@ -2,8 +2,6 @@ package com.yagiz.carservice.entities;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.main.java.com.yagiz.companyservice.entity.Company;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +24,8 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private int companyId;
+    private int groupId;
     private String plate;
 
     @Length(min = 17, max = 17, message = "The chassis number must be equal to 17 characters")
@@ -35,8 +35,4 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "modelId")
     private Model model;
-
-    @ManyToOne
-    @JoinColumn(name="companyId")
-    private Company company;
 }

@@ -16,4 +16,6 @@ public interface CarService {
     GetCarResponse getCarById(int id);
     List<GetCarListResponse> getCarList();
     void deleteById(int id);
+    void changeResponseGroupName(String name);
+    void changeResponseCompanyName(String companyName);
 }

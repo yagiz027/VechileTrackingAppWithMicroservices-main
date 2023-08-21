@@ -8,6 +8,7 @@ import com.main.java.com.yagiz.companyservice.business.dtos.reponses.get.GetComp
 import com.main.java.com.yagiz.companyservice.business.dtos.reponses.update.UpdateCompanyResponse;
 import com.main.java.com.yagiz.companyservice.business.dtos.requests.CreateCompanyRequest;
 import com.main.java.com.yagiz.companyservice.business.dtos.requests.UpdateCompanyRequest;
+import com.main.java.com.yagiz.companyservice.entity.Company;
 
 public interface CompanyService {
     GetCompanyResponse getCompanyById(int id);
@@ -15,4 +16,5 @@ public interface CompanyService {
     CreateCompanyResponse add(CreateCompanyRequest request);
     UpdateCompanyResponse update(int id,UpdateCompanyRequest request);
     void deleteById(int id);
+    Company getCompanyByRequestId(int id);
 }

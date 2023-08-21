@@ -14,9 +14,9 @@ import com.yagiz.carservice.business.dto.requests.update.UpdateModelRequest;
 import com.yagiz.carservice.business.rules.ModelBusinessRules;
 import com.yagiz.carservice.entities.Model;
 import com.yagiz.carservice.repository.ModelRepository;
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @AllArgsConstructor
 @Service

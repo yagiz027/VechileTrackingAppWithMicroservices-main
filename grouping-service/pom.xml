@@ -54,6 +54,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -85,13 +90,13 @@
 
 		<dependency>
 			<groupId>com.yagiz</groupId>
-			<artifactId>exception-service</artifactId>
+			<artifactId>car-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.yagiz</groupId>
-			<artifactId>car-service</artifactId>
+			<artifactId>exception-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

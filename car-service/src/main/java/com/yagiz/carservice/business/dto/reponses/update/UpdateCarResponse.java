@@ -11,9 +11,9 @@ import lombok.Setter;
 @Setter
 public class UpdateCarResponse {
     private int carId;
-    private String modelName;
     private String companyName;
     private String groupName;
+    private String modelName;
     private String carPlate;   
     private String ChassisNumber;
     private String tag;

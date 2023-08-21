@@ -14,34 +14,45 @@ import com.yagiz.carservice.business.dto.requests.update.UpdateCarRequest;
 import com.yagiz.carservice.business.rules.CarBusinessRules;
 import com.yagiz.carservice.entities.Car;
 import com.yagiz.carservice.repository.CarRepository;
+import com.yagiz.commonservice.Events.Car.CarCreatedEvent;
+import com.yagiz.commonservice.Mapper.ModelMapperService;
+import com.yagiz.commonservice.kafka.producer.KafkaProducer;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 @AllArgsConstructor
 @Service
 public class CarManager implements CarService{
-    private CarRepository repository;
-    private CarBusinessRules rules;
-    private ModelMapperService mapperService;
+    private final CarRepository repository;
+    private final CarBusinessRules rules;
+    private final ModelMapperService mapperService;
+    private final KafkaProducer producer;
+    private CreateCarResponse createCarResponse;
+    private UpdateCarResponse updateCarResponse;
+
 
     @Override
     public CreateCarResponse add(CreateCarRequest request) {
         var car=mapperService.forRequest().map(request, Car.class);
+
         car.setId(0);
         repository.save(car);
-        var response=mapperService.forResponse().map(car, CreateCarResponse.class);
-        return response;
+        createCarResponse=mapperService.forResponse().map(car, CreateCarResponse.class);
+        sendKafkaCarCreatedEvent(car);
+
+        return createCarResponse;
     }
 
     @Override
     public UpdateCarResponse update(int carId ,UpdateCarRequest request) {
         rules.checkIfCarNotFound(carId);
         var car=mapperService.forRequest().map(request, Car.class);
+
         car.setId(carId);
         repository.save(car);
-        var response=mapperService.forRequest().map(car,UpdateCarResponse.class);
-        return response;
+        updateCarResponse=mapperService.forRequest().map(car,UpdateCarResponse.class);
+
+        return updateCarResponse;
     }
 
     @Override
@@ -63,5 +74,20 @@ public class CarManager implements CarService{
     public void deleteById(int id) {
         rules.checkIfCarNotFound(id);
         repository.deleteById(id);
+    }
+
+    private void sendKafkaCarCreatedEvent(Car createdCar){
+        var event=mapperService.forResponse().map(createdCar, CarCreatedEvent.class);
+        producer.sendMessage(event,"car-created" );
+    }
+
+    @Override
+    public void changeResponseGroupName(String groupName) {
+       this.createCarResponse.setGroupName(groupName); 
+    }
+
+    @Override
+    public void changeResponseCompanyName(String companyName) {
+        this.createCarResponse.setCompanyName(companyName);
     }
 }

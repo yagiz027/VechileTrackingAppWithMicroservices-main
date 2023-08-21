@@ -14,9 +14,9 @@ import com.yagiz.carservice.business.dto.requests.update.UpdateBrandRequest;
 import com.yagiz.carservice.business.rules.BrandBusinessRules;
 import com.yagiz.carservice.entities.Brand;
 import com.yagiz.carservice.repository.BrandRepository;
+import com.yagiz.commonservice.Mapper.ModelMapperService;
 
 import lombok.AllArgsConstructor;
-import main.java.com.yagiz.commonservice.Mapper.ModelMapperService;
 
 
 @Service

@@ -8,6 +8,7 @@ import com.yagiz.groupingservice.business.dto.responses.create.CreateGroupRespon
 import com.yagiz.groupingservice.business.dto.responses.get.GetGroupById;
 import com.yagiz.groupingservice.business.dto.responses.get.GetGroupList;
 import com.yagiz.groupingservice.business.dto.responses.update.UpdateGroupResponse;
+import com.yagiz.groupingservice.entity.Group;
 
 public interface GroupService {
     GetGroupById getById(int id);
@@ -15,4 +16,5 @@ public interface GroupService {
     CreateGroupResponse addGroup(CreateGroupRequest request);
     UpdateGroupResponse updateGroup(int id,UpdateGroupRequest request);
     void deleteById(int id);
+    Group getGroupByRequestId(int id);
 }

@@ -1,12 +1,13 @@
-server:
-  port: 8888
-
 spring:
+  application:
+    name: config-server
   cloud:
     config:
       server:
         default-label: main
         git:
-          uri: https://github.com/yagiz027/config-server
+          uri: https://github.com/yagiz027/config-server-for-vechile-tracking
   profiles:
     active: dev
+server:
+  port: 8888
