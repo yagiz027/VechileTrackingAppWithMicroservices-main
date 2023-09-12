@@ -1,4 +1,4 @@
-package com.yagiz.exceptionservice.utils.results;
+package com.yagiz.commonservice.exceptionUtils.results;
 
 import lombok.Getter;
 import lombok.Setter;

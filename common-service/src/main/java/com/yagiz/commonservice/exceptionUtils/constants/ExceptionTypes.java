@@ -1,4 +1,4 @@
-package com.yagiz.exceptionservice.utils.constants;
+package com.yagiz.commonservice.exceptionUtils.constants;
 
 public class ExceptionTypes {
     public static final String Validation="VALIDATION_EXCEPTION";

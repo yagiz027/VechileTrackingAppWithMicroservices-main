@@ -1,4 +1,4 @@
-package com.yagiz.exceptionservice.utils.exceptions;
+package com.yagiz.commonservice.exceptionUtils.exceptions;
 
 public class BusinessException extends RuntimeException {
     public BusinessException(String message) {

@@ -4,9 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
+import com.yagiz.commonservice.PathFinder.Paths;
 import com.yagiz.commonservice.configuration.mappers.ModelMapperConfig;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {Paths.configurationBasePackage,Paths.Group.ServiceBasePackage})
 @Import(ModelMapperConfig.class)
 public class GroupingServiceApplication {
 

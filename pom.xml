@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.2</version>
+		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<modules>
@@ -27,7 +27,7 @@
 			<id>yagiz027</id>
 			<name>Yağız ERİŞ</name>
 			<email>yagiz8914@gmail.com</email>
-			<url>https://www.linkedin.com/in/ya%C4%9F%C4%B1z-eri%C5%9F-413a09201/</url>
+			<url>https://www.linkedin.com/in/yagizeris</url>
 		</developer>
 	</developers>
 

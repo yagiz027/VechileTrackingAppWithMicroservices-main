@@ -1,4 +1,4 @@
-package com.yagiz.exceptionservice.ExceptionConfiguration;
+package com.yagiz.commonservice.configuration.ExceptionConfiguration;
 
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.yagiz.exceptionservice.utils.constants.ExceptionTypes;
-import com.yagiz.exceptionservice.utils.exceptions.BusinessException;
-import com.yagiz.exceptionservice.utils.results.ExceptionResult;
+import com.yagiz.commonservice.exceptionUtils.constants.ExceptionTypes;
+import com.yagiz.commonservice.exceptionUtils.exceptions.BusinessException;
+import com.yagiz.commonservice.exceptionUtils.results.ExceptionResult;
 
 import jakarta.validation.ValidationException;
 

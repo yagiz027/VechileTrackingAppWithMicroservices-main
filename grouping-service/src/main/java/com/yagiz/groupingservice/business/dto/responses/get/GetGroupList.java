@@ -2,7 +2,7 @@ package com.yagiz.groupingservice.business.dto.responses.get;
 
 import java.util.List;
 
-import com.yagiz.exceptionservice.utils.constants.Messages.Group;
+import com.yagiz.groupingservice.entity.Group;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

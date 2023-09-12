@@ -1,12 +1,14 @@
 package com.yagiz.commonservice.Events.Car;
 
+import com.yagiz.commonservice.Events.Event;
+
 import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class CarUpdatedEvent {
+public class CarUpdatedEvent implements Event{
     private int carId;
     private int modelId;
     private int brandID;

@@ -3,8 +3,8 @@ package com.main.java.com.yagiz.companyservice.business.rules;
 import org.springframework.stereotype.Service;
 
 import com.main.java.com.yagiz.companyservice.repository.CompanyRepository;
-import com.yagiz.exceptionservice.utils.constants.Messages;
-import com.yagiz.exceptionservice.utils.exceptions.BusinessException;
+import com.yagiz.commonservice.exceptionUtils.constants.Messages;
+import com.yagiz.commonservice.exceptionUtils.exceptions.BusinessException;
 
 import lombok.AllArgsConstructor;
 

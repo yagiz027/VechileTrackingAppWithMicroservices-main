@@ -2,8 +2,8 @@ package com.yagiz.userservice.business.rules;
 
 import org.springframework.stereotype.Service;
 
-import com.yagiz.exceptionservice.utils.constants.Messages;
-import com.yagiz.exceptionservice.utils.exceptions.BusinessException;
+import com.yagiz.commonservice.exceptionUtils.constants.Messages;
+import com.yagiz.commonservice.exceptionUtils.exceptions.BusinessException;
 import com.yagiz.userservice.repository.UserRepository;
 
 import lombok.AllArgsConstructor;

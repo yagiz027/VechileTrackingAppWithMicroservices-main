@@ -27,19 +27,16 @@ public class CarManager implements CarService{
     private final CarBusinessRules rules;
     private final ModelMapperService mapperService;
     private final KafkaProducer producer;
-    private CreateCarResponse createCarResponse;
-    private UpdateCarResponse updateCarResponse;
-
 
     @Override
     public CreateCarResponse add(CreateCarRequest request) {
         var car=mapperService.forRequest().map(request, Car.class);
 
         car.setId(0);
-        repository.save(car);
-        createCarResponse=mapperService.forResponse().map(car, CreateCarResponse.class);
-        sendKafkaCarCreatedEvent(car);
+        var createdCar = repository.save(car);
+        sendKafkaCarCreatedEvent(createdCar);  
 
+        var createCarResponse=mapperService.forResponse().map(car, CreateCarResponse.class);
         return createCarResponse;
     }
 
@@ -50,7 +47,7 @@ public class CarManager implements CarService{
 
         car.setId(carId);
         repository.save(car);
-        updateCarResponse=mapperService.forRequest().map(car,UpdateCarResponse.class);
+        var updateCarResponse=mapperService.forRequest().map(car,UpdateCarResponse.class);
 
         return updateCarResponse;
     }
@@ -79,15 +76,5 @@ public class CarManager implements CarService{
     private void sendKafkaCarCreatedEvent(Car createdCar){
         var event=mapperService.forResponse().map(createdCar, CarCreatedEvent.class);
         producer.sendMessage(event,"car-created" );
-    }
-
-    @Override
-    public void changeResponseGroupName(String groupName) {
-       this.createCarResponse.setGroupName(groupName); 
-    }
-
-    @Override
-    public void changeResponseCompanyName(String companyName) {
-        this.createCarResponse.setCompanyName(companyName);
     }
 }

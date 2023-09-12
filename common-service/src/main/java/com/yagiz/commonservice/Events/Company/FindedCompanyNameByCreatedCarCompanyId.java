@@ -1,4 +1,4 @@
-package com.yagiz.commonservice.Events.Car;
+package com.yagiz.commonservice.Events.Company;
 
 import com.yagiz.commonservice.Events.Event;
 
@@ -11,6 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class BrandDeletedEvent implements Event {
-    private int brandId;
+public class FindedCompanyNameByCreatedCarCompanyId implements Event {
+    String companyName;
 }
